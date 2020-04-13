@@ -10,9 +10,12 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">   
     <style>
+        body{
+            min-height: 500px;
+        }
         .container{
             width : 40%;
-            margin : 140px auto ;
+            margin : 100px auto 150px ;
             background-color: #dfe8e7;
             text-align:center;
         }
