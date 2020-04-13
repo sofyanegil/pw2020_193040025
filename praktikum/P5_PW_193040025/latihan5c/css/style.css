@@ -1,0 +1,63 @@
+body{
+    font-family:arial;
+    background:linear-gradient(to right bottom, khaki, #8081ff, #a6ffb8, #dfff29);
+    min-height: 1000px;
+}
+img{
+    filter : grayscale(100%);
+    opacity : 50%;
+}
+img:hover {
+    filter : saturate(150%);
+    opacity : 100%;
+}
+.container{
+    border: 5px dashed blue;
+    width: 35%;
+    margin: 50px auto auto auto;
+    
+}
+
+.bg_display{
+    background-color: #ffe1b0;
+  
+}
+.bg_display img{
+    width: 100%;
+    height:350px; 
+   margin: auto;
+}
+.merk{
+    background-color: #fcbfa9;
+    color:#ffffff;
+    font-weight:bold;
+}
+.nama_artikel{
+    background-color: #fac5e6;
+    color:#946500;
+}
+#nama_artikel a {
+    font-size: 25px;
+   color :black;
+}
+.bg_size_guide{
+    background-color: #ffffff;
+   
+}
+.bg_size_guide img{
+    width: 100%;
+    height:350px;
+    margin: auto;
+}
+.harga{
+    background-color: #f5f387;
+    color:red;
+}
+.stok{
+    background-color: #5ced83;
+    color:yellow;
+}
+p {
+    margin : 0;
+    text-align: center;
+}
