@@ -1,0 +1,83 @@
+body{
+  font-family:arial;
+  background:linear-gradient(to right bottom, khaki, #8081ff, #a6ffb8, #dfff29);
+
+}
+img{
+  filter : grayscale(100%);
+  opacity : 50%;
+}
+img:hover {
+  filter : saturate(150%);
+  opacity : 100%;
+}
+table {
+  margin: auto;
+  font-size : 20px;
+  text-align: center;
+  border : 5px dashed black;
+  width: 85%;
+}
+.tambah{
+  background-color: teal;
+  color: whitesmoke;
+  font-size: 20px;
+  width: 70px;
+  text-decoration: none;
+}
+.tambah:hover{
+  background-color: red;
+  color: whitesmoke;
+}
+.thead{
+  background-color: #88f7f2;
+}
+.title_table{
+  background-color: #ace8bc;
+}
+.no{
+  background-color:#ddf59a ;
+}
+.opsi{
+  background-color: peachpuff;
+}
+.ubah button{
+  background-color: green;
+  color: whitesmoke;
+}
+.hapus button{
+  background-color: red;
+  color: whitesmoke;
+}
+.display{
+  background-color: #ffe1b0;
+  
+}
+.display img{
+  width: 250px;
+  height:250px;
+}
+.merk{
+  background-color: #fcbfa9;
+  color:#ffffff;
+  font-weight:bold;
+}
+.nama_artikel{
+  background-color: #fac5e6;
+  color:#946500;
+}
+.size_guide{
+  background-color: #ffffff;
+}
+.size_guide img{
+  width: 200px;
+  height:200px;
+}
+.harga{
+  background-color: #f5f387;
+  color:red;
+}
+.stok{
+  background-color: #5ced83;
+  color:yellow;
+}
