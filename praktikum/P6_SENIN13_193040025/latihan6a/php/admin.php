@@ -18,7 +18,6 @@ $apparel = query("SELECT * FROM apparel");
 </head>
 
 <body>
-  <a href="../index.php"><button>Kembali ke INDEX</button></a>
   <table border="1" cellspacing="0" cellpadding="5">
     <tr class="thead">
       <th colspan="8">

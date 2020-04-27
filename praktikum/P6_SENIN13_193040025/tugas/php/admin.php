@@ -33,19 +33,22 @@ if (isset($_GET['cari'])) {
 </head>
 
 <body>
-  <div class="add">
-    <a href="tambah.php" class="tambah">Tambah Data</a>
-  </div>
+  <a href="../index.php"><button>Kembali Ke Index</button></a>
+
   <br>
-  <form action="" method="get">
-    <input type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off">
-    <button type="submit" name="cari">Cari!</button>
-  </form>
+
   <br>
   <table border="1" cellspacing="0" cellpadding="5">
     <tr class="thead">
       <th colspan="8">
+        <div class="add" align="left">
+          <a href="tambah.php" class="tambah">Tambah Data</a>
+        </div>
         <h1>Gudang Entraight.co Store</h1>
+        <form action="" method="get">
+          <input type="text" name="keyword" size="50" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off">
+          <button type="submit" name="cari">Cari!</button>
+        </form>
       </th>
     </tr>
     <tr class="title_table">

@@ -49,7 +49,6 @@ $apparel = query("SELECT * FROM apparel")
 </head>
 
 <body>
-    <a href="php/admin.php"><button>Admin</button></a>
     <div class="container">
         <h1>Entraight Store.co</h1>
         <?php foreach ($apparel as $a) : ?>

@@ -59,7 +59,6 @@ if (isset($_POST['cari'])) {
 </head>
 
 <body>
-    <a href="php/admin.php"><button>Admin</button></a>
     <form action="" method="POST">
         <input type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off">
         <button type="submit" name="cari">Cari!</button>
