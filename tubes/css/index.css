@@ -1,39 +1,8 @@
-body{
-  background:linear-gradient(to right bottom, khaki, #8081ff, #a6ffb8, #dfff29);
-  min-height: 600px;
-}
-img{
-  filter : grayscale(100%);
-  opacity : 50%;
-  width: 300px;
-}
-img:hover {
-  filter : saturate(150%);
-  opacity : 100%;
+.bungkus{
+margin: auto 5px;
 }
 
-.container{
-  border: 5px dashed blue;
-  width: 50%;
-  margin: 10px auto;
-  background-color: #dfe8e7;
-  text-align: center;
-}
-
-h1 {
-  background-color: #8cffee;
-  margin: 0 auto;
-  border-bottom: 2px solid red;
-  font-size: 50px;
-}
-
-.nama_artikel{
-  background-color: #fac5e6;
-  color:#946500;
-  font-size: 25px;
-  height: 70px;
-}
-p   {
-  margin: auto;
-  font-family: 'Compacta';
+.bungkus img{
+  width: 250px;
+height: 250px;
 }

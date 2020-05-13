@@ -32,94 +32,66 @@ if (isset($_POST['ubah'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <title>Ubah Data Entraigh.co Store</title>
 </head>
 
-<body>
-  <table border="1" cellspacing="0" cellpadding="5">
-    <form action="" method="post">
 
-      <th colspan="3">
-        <h3>Ubah Gudang Entraight.co Store</h3>
-      </th>
-      <input type="hidden" name="id" id="id" reuquired value="<?= $apparel['id']; ?>">
-      <tr>
-        <td>
-          <label for="display">Display</label>
-        </td>
-        <td>
-          :
-        </td>
-        <td>
-          <input type="text" name="display" id="display" required value="<?= $apparel['display']; ?>">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="merk">Merk</label>
-        </td>
-        <td>
-          :
-        </td>
-        <td>
-          <input type="text" name="merk" id="merk" required value="<?= $apparel['merk']; ?>">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="nama_artikel">Nama Artikel</label>
-        </td>
-        <td>
-          :
-        </td>
-        <td>
-          <input type="text" name="nama_artikel" id="nama_artikel" required value="<?= $apparel['nama_artikel']; ?>">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="size">Size Guide</label>
-        </td>
-        <td>
-          :
-        </td>
-        <td>
-          <input type="text" name="size" id="size" required value="<?= $apparel['size']; ?>">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="harga">Harga</label>
-        </td>
-        <td>
-          :
-        </td>
-        <td>
-          <input type="number" name="harga" id="harga" required value="<?= $apparel['harga']; ?>">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="stok">Stok</label>
-        </td>
-        <td>
-          :
-        </td>
-        <td>
-          <input type="number" name="stok" id="stok" required value="<?= $apparel['stok']; ?>">
-        </td>
-      </tr>
-      <tr>
-        <td colspan="3">
-          <button type="submit" name="ubah">Ubah Data!</button>
-          <button type="submit">
-            <a href="../index.php" style="text-decoration: none; color: black;">Kembali</a>
-          </button>
-        </td>
-      </tr>
-    </form>
-  </table>
 
+<body class="mt-5 bg-success">
+  <form action="" method="post">
+    <input type="hidden" name="id" id="id" reuquired value="<?= $apparel['id']; ?>">
+    <div class="container bg-success">
+      <div class="row sm-12 ">
+        <div class="card-deck justify-content-center" style="width: 26rem;margin:auto;">
+          <div class="card container">
+            <div class="card-header text-center">
+              <img src="../assets/img/icon/ubah.png" alt=""> <br>
+              <h3> Form Ubah Data</h3>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Merk</label>
+              <div class="col sm-12">
+                <input type="text" name="merk" id="merk" required class="form-control" value="<?= $apparel['merk']; ?>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Nama Artikel</label>
+              <div class="col sm-12">
+                <input type="text" name="nama_artikel" id="nama_artikel" required class="form-control" value="<?= $apparel['nama_artikel']; ?>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Size</label>
+              <div class="col sm-12">
+                <input type="text" name="size" id="size" required class="form-control" value="<?= $apparel['size']; ?>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Stok</label>
+              <div class="col sm-12">
+                <input type="number" name="stok" id="stok" required class="form-control" value="<?= $apparel['stok']; ?>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Harga</label>
+              <div class="col sm-12">
+                <input type="number" name="harga" id="harga" required class="form-control" value="<?= $apparel['harga']; ?>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Display</label>
+              <div class="col sm-12">
+                <input type="text" name="display" id="display" required class="form-control" value="<?= $apparel['display']; ?>">
+              </div>
+            </div>
+            <button type="submit" name="ubah" class="btn btn-success">Ubah Data!</button>
+            <a href="admin.php" class="btn btn-danger">Kembali</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </body>
 
 </html>

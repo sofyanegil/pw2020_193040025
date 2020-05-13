@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
             </div>
           <?php endif; ?>
           <div class="bungkus">
-            <div class="card-deck justify-content-center" style="width: 24rem;;">
+            <div class="card-deck justify-content-center" style="width: 24rem;">
               <div class="card bg-light ">
                 <div class="card-header justify-content-center">
                   <h1 align="center"> <img src="../assets/img/icon/login.png" alt="" width="60"> <br> Login</h1>

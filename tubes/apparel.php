@@ -20,7 +20,7 @@ if (isset($_POST['cari'])) {
 
 <head>
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" href="css/apparel.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entraight.co Store</title>
@@ -46,8 +46,7 @@ if (isset($_POST['cari'])) {
   </nav>
 
   <h3 align="center">Daftar Local Apparel</h3>
-  <div class="container bg-secondary mb-3">
-
+  <div class="container bg-secondary mb-5">
     <div class="row justify-content-center">
       <?php if (empty($apparel)) : ?>
         <div class="card bg-">
@@ -60,11 +59,11 @@ if (isset($_POST['cari'])) {
           </div>
         <?php else : ?>
           <?php foreach ($apparel as $a) : ?>
-            <div class="bungkus">
+            <div class="bungkus mr-2 mb-2">
               <div class="card-deck" style="width: 18rem; height: 24rem;">
                 <div class="card bg-light kotak-apparel">
                   <div class="card-header justify-content-center">
-                    <img class="justify-content-center" src="assets/img/<?= $a['display']; ?>" alt="">
+                    <img class="justify-content-center" width="250px" height="250px" src="assets/img/<?= $a['display']; ?>" alt="">
                   </div>
                   <div class="card-body">
                     <a href="php/detail.php?id=<?= $a['id'] ?>">

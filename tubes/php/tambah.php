@@ -33,114 +33,59 @@ if (isset($_POST['tambah'])) {
   <title>Tambah Data Entraigh.co Store</title>
 </head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+<body class="mt-5 bg-light">
+  <form action="" method="post">
+    <div class="container bg-light">
+      <div class="row sm-12">
+        <div class="card-deck justify-content-center" style="width: 26rem;margin:auto;">
+          <div class="card container">
+            <div class="card-header text-center">
+              <img src="../assets/img/icon/tambah.png" alt=""> <br>
+              <h3> Form Tambah Data</h3>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Merk</label>
+              <div class="col sm-12">
+                <input type="text" name="merk" id="merk" required class="form-control" placeholder="Merk apparel">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Nama Artikel</label>
+              <div class="col sm-12">
+                <input type="text" name="nama_artikel" id="nama_artikel" required class="form-control" placeholder="Nama Apparel">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Size</label>
+              <div class="col sm-12">
+                <input type="text" name="size" id="size" required class="form-control" placeholder="Size">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Stok</label>
+              <div class="col sm-12">
+                <input type="number" name="stok" id="stok" required class="form-control" placeholder="Stock">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Harga</label>
+              <div class="col sm-12">
+                <input type="number" name="harga" id="harga" required class="form-control" placeholder="Harga">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabel" class="col-sm-4 col-form-label">Display</label>
+              <div class="col sm-12">
+                <input type="number" name="display" id="display" required class="form-control" placeholder="Display">
+              </div>
+            </div>
+            <button type="submit" name="tambah" class="btn btn-success">Tambah Data!</button>
+            <a href="admin.php" class="btn btn-danger">Kembali</a>
+          </div>
         </div>
       </div>
     </div>
-    <table border="1" cellspacing="0" cellpadding="5">
-      <form action="" method="post">
-
-        <th colspan="3">
-          <h3>Gudang Entraight.co Store</h3>
-        </th>
-        <tr>
-          <td>
-            <label for="display">Display</label>
-          </td>
-          <td>
-            :
-          </td>
-          <td>
-            <input type="text" name="display" id="display" required>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="merk">Merk</label>
-          </td>
-          <td>
-            :
-          </td>
-          <td>
-            <input type="text" name="merk" id="merk" required>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="nama_artikel">Nama Artikel</label>
-          </td>
-          <td>
-            :
-          </td>
-          <td>
-            <input type="text" name="nama_artikel" id="nama_artikel" required>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="size">Size Guide</label>
-          </td>
-          <td>
-            :
-          </td>
-          <td>
-            <input type="text" name="size" id="size" required>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="harga">Harga</label>
-          </td>
-          <td>
-            :
-          </td>
-          <td>
-            <input type="number" name="harga" id="harga" required>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="stok">Stok</label>
-          </td>
-          <td>
-            :
-          </td>
-          <td>
-            <input type="number" name="stok" id="stok" required>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <button type="submit" name="tambah">Tambah Data!</button>
-            <button type="submit">
-              <a href="../index.php" style="text-decoration: none; color: black;">Kembali</a>
-            </button>
-          </td>
-        </tr>
-      </form>
-    </table>
-    <form>
-      <div class="form-group row">
-        <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
-        </div>
-      </div>
-    </form>
-  </div>
+  </form>
 
 </body>
 
