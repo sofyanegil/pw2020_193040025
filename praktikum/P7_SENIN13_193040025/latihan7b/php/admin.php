@@ -12,7 +12,7 @@ if (isset($_GET['cari'])) {
         display LIKE '%$keyword%' OR
         merk LIKE '%$keyword%' OR
         nama_artikel LIKE '%$keyword%' OR
-        size_guide LIKE '%$keyword%' OR
+        size LIKE '%$keyword%' OR
         harga LIKE '%$keyword%' OR
         stok LIKE '%$keyword%' 
         "
@@ -20,6 +20,7 @@ if (isset($_GET['cari'])) {
 } else {
   $apparel = query("SELECT * FROM apparel");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +80,7 @@ if (isset($_GET['cari'])) {
           <td class="display"><img src="../assets/img/<?= $a['display']; ?>"></td>
           <td class="merk"><?= $a["merk"] ?></td>
           <td class="nama_artikel"><?= $a["nama_artikel"] ?></td>
-          <td class="size_guide"><img src="../assets/img/<?= $a['size_guide']; ?>"></td>
+          <td class="size"><?= $a['size']; ?></td>
           <td class="harga"><b>Rp. <?= $a["harga"] ?></b></td>
           <td class="stok"><b><?= $a["stok"] ?></b></td>
         </tr>

@@ -27,6 +27,8 @@ if (isset($_POST['cari'])) {
 </head>
 
 <body>
+    <a href="../index.php" class="btn btn-danger text-light mt-3 ml-2">Kembali</a>
+    <br>
     <a href="php/login.php">
         <button class="admin">Masuk ke halaman admin</button>
     </a>

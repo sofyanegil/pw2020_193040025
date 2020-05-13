@@ -1,0 +1,16 @@
+1. JT.jpg (properti pribadi)
+2. Profile (properti pribadi)
+3. Portfolio (properti pribadi)
+4. Icon.png(https://material.io/resources/icons/) 
+5. contact
+(Telegram :https://www.stickpng.com/img/icons-logos-emojis/tech-companies/telegram-logo
+ Whatsapp :http://pngimg.com/imgs/logos/whatsapp/
+ Twitter :http://pngimg.com/imgs/logos/twitter/
+ Instagram:http://pngimg.com/imgs/logos/instagram/)
+6. Logo (properti Pribadi)
+7. TTD (properti pribadi)
+font 
+Ubuntu : https://fonts.googleapis.com/css?family=Ubuntu:300i,800,700i&display=swap
+Teko : https://fonts.googleapis.com/css?family=Shadows+Into+Light|Teko&display=swap
+Oswald: https://fonts.googleapis.com/css?family=Oswald&display=swap
+Raleway: https://fonts.googleapis.com/css?family=Raleway&display=swap

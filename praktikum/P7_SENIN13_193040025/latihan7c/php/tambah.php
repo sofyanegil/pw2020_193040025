@@ -74,13 +74,13 @@ if (isset($_POST['tambah'])) {
       </tr>
       <tr>
         <td>
-          <label for="size_guide">Size Guide</label>
+          <label for="size">Size Guide</label>
         </td>
         <td>
           :
         </td>
         <td>
-          <input type="text" name="size_guide" id="size_guide" required>
+          <input type="text" name="size" id="size" required>
         </td>
       </tr>
       <tr>

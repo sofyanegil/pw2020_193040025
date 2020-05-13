@@ -21,7 +21,7 @@ $apparel = query("SELECT * FROM apparel WHERE id = $id")[0];
     <link rel="stylesheet" href="../css/detail.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latihan 5c</title>
+    <title>Detail</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@ $apparel = query("SELECT * FROM apparel WHERE id = $id")[0];
                 </td>
                 <td rowspan="4">
                     <div class="bg_size_guide">
-                        <img src="../assets/img/<?= $apparel['size_guide']; ?>" alt="">
+                        <?= $apparel['size']; ?>
                     </div>
                 </td>
             </tr>

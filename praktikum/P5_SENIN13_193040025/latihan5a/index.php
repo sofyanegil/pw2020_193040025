@@ -11,6 +11,7 @@ $result = mysqli_query($conn, "SELECT * FROM apparel");
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,6 +19,7 @@ $result = mysqli_query($conn, "SELECT * FROM apparel");
 </head>
 
 <body>
+    <a href="../index.php" class="btn btn-danger text-light mt-3 ml-2">Kembali</a>
     <table border="1" cellspacing="0" cellpadding="5" width="90%">
         <tr bgcolor="#88f7f2">
             <th colspan="7">
@@ -40,13 +42,14 @@ $result = mysqli_query($conn, "SELECT * FROM apparel");
                 <td class="display"><img src="assets/img/<?= $row['display']; ?>"></td>
                 <td class="merk"><?= $row["merk"] ?></td>
                 <td class="nama_artikel"><?= $row["nama_artikel"] ?></td>
-                <td class="size_guide"><img src="assets/img/<?= $row['size_guide']; ?>"></td>
+                <td class="size_guide"><?= $row['size']; ?></td>
                 <td class="harga"><b><?= $row["harga"] ?></b></td>
                 <td class="stok"><b><?= $row["stok"] ?></b></td>
             </tr>
             <?php $i++ ?>
         <?php endwhile; ?>
     </table>
+    <br>
 </body>
 
 </html>

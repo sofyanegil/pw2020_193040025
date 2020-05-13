@@ -1,0 +1,255 @@
+/* navbar */
+.navbar {
+    background-color: lime;
+    opacity: 1;
+}
+.navbar-brand, .nav-link {
+    color: rgb(255, 187, 0) !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    font-size: 19px;
+    padding-left: 2px;
+}
+.navbar-brand{
+    font-family: Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+}
+.nav-item{
+    font-family: 'Teko', sans-serif;
+}
+.navbar-brand, .nav-item {
+    color: black;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background-color: whitesmoke;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: lime;
+    background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background-color: rgba(10,10,0,0.4); 
+}
+/* jt */
+.jumbotron {
+    background-image: url(../img/JT.jpg);
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.jumbotron .container {
+    position: relative;
+    z-index: 1;
+
+}
+.jumbotron::after {
+    content: '';
+    width: 100%;
+    height: 90%;
+    background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    display: block;
+    position: absolute;
+    bottom: 0;
+}
+.jumbotron .display-4 {
+    color: white;
+    margin: 50px, auto, 40px;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9);
+    font-size: 70px;
+    font-family: 'Ubuntu', sans-serif !important;
+    font-weight: lighter !important ;
+}
+.jumbotron .display-4 span {
+    font-weight: 700;
+}
+
+/* about */
+img.profile1{
+    height: 230px;
+    width: 200px;
+    border-radius: 5%;
+    margin-left:  120px;
+    margin-top: 30px;
+}
+.about{
+    background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    margin-top: -100px;
+}
+.ktp {
+    min-height: 400px;
+    background-image: linear-gradient(to bottom, rgba(68, 216, 253, 0.4), rgba(143, 228, 228, 0));
+    margin: auto;
+    top: 20px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 1px rgba(0, 0,0,0.9);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    transform: scale(0.8);
+}
+
+.ktp:hover {
+    transform: scale(0.99);
+    box-shadow:1px 1px 1px rgba(0,0,0,0.8);
+    
+}
+/* skill */
+.skill {
+    min-height: 150px;
+    background-color: khaki !important;
+    background-image: linear-gradient(to top, rgb(253, 236, 0), rgba(240, 217, 16, 0));
+}
+
+.tools {
+    margin-top: -35px;
+}
+
+.kotak_tools{
+    border-radius: 20px;
+}
+
+/* portfolio */
+.portfolio .bawah img{
+    height: 500px;
+}
+
+
+/* contact */
+.contact {
+    background-color: #1eff00;
+    background-image: linear-gradient(to bottom, rgb(123, 255, 0), rgb(27, 133, 0));
+    
+}
+.kontaknya {
+    width: 40px;
+    height: 40px;
+    filter: grayscale(1);
+}
+.kontaknya:hover{
+	transform: scale(1.5);
+    filter: saturate(200%);
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    border-radius: 90%;
+    z-index: 999;
+    background-color: white;
+}
+/* footer */
+footer{
+    background-color: lightblue;
+    background-image: linear-gradient(to bottom, rgba(0, 119, 255, 0.7), rgba(12, 247, 227, 0.925));
+    height: 270x;
+    padding-bottom: 0;
+}
+footer p {
+    font-size: 18px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+footer a{
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    color: yellow;
+}
+footer a:hover{
+    color: red;
+}
+
+body h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    letter-spacing: 5px;
+}
+body{
+    font-family: 'Raleway', sans-serif; ;
+}
+
+/* DESKTOP VERSION */
+@media (min-width: 992px) {
+    nav {
+        height: 60px !important;
+    }
+    .navbar-brand, .nav-link {
+        color: lime !important;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    }
+    .navbar-brand{
+        font-size: 32px;
+    }
+    .nav-item{
+        font-size: 25px;
+        letter-spacing: 5px;
+        right: 0 !important;
+        text-shadow: 1px 2px 3px rgb(4, 0, 248);
+    }
+    .nav-link {
+    text-transform: uppercase;
+    margin-right: 30px ;
+    }
+
+    .nav-link:hover::after{
+        content: '';
+        display: block;
+        border-bottom: 3px solid yellow ;
+        width: 50%;
+        margin: auto;
+        padding-bottom: 5px;
+        margin-bottom: -8px;
+        
+    }
+    .navbar {
+        background-color: whitesmoke;
+        opacity: 0.9;
+    }
+    .jumbotron {
+        margin-top: -75px;
+        height: 690px;
+    }
+
+    .jumbotron .display-4 {
+        font-size: 80px;
+        margin-top: 90px;
+        font-weight: 100;
+       
+    }
+    .ktp {
+        width: 810px;
+        min-height: 600px;
+        background-image: linear-gradient(to bottom, rgba(68, 216, 253, 0.4), rgba(143, 228, 228, 0));
+        margin: auto;
+        margin-top: 100px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        box-shadow: 5px 5px 1px rgba(99, 99, 98, 0.9);
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        top: -20px;
+    }
+    .isi_ktp{
+        font-size: 15px;
+        font-weight: 300;
+    }
+    .tools{
+        margin-top: -190px;
+    }
+.kotak_tools img{
+    width: 50px;
+}
+    .kotak_tools {
+      margin-left: 30px;    
+      box-shadow: 2px 3px 4px rgba(0, 0, 0,0.7);    
+    }
+    .contact{
+        height: 600px;
+    }
+}

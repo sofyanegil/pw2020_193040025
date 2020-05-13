@@ -28,13 +28,13 @@ function tambah($data)
     $display = htmlspecialchars($data['display']);
     $merk = htmlspecialchars($data['merk']);
     $nama_artikel = htmlspecialchars($data['nama_artikel']);
-    $size_guide = htmlspecialchars($data['size_guide']);
+    $size = htmlspecialchars($data['size']);
     $harga = htmlspecialchars($data['harga']);
     $stok = htmlspecialchars($data['stok']);
     $query = "INSERT INTO 
              apparel 
              VALUES
-    ('' , '$display', '$merk', '$nama_artikel', '$size_guide', '$harga', '$stok')";
+    ('' , '$display', '$merk', '$nama_artikel', '$size', '$harga', '$stok')";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
@@ -55,7 +55,7 @@ function ubah($data)
     $display = htmlspecialchars($data['display']);
     $merk = htmlspecialchars($data['merk']);
     $nama_artikel = htmlspecialchars($data['nama_artikel']);
-    $size_guide = htmlspecialchars($data['size_guide']);
+    $size = htmlspecialchars($data['size']);
     $harga = htmlspecialchars($data['harga']);
     $stok = htmlspecialchars($data['stok']);
 
@@ -63,7 +63,7 @@ function ubah($data)
             display = '$display',
             merk = '$merk',
             nama_artikel = '$nama_artikel',
-            size_guide = '$size_guide',
+            size = '$size',
             harga = '$harga',
             stok = '$stok'
             WHERE id = '$id'

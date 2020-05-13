@@ -77,7 +77,7 @@ if (isset($_POST['ubah'])) {
           :
         </td>
         <td>
-          <input type="text" name="size_guide" id="size_guide" required value="<?= $apparel['size_guide']; ?>">
+          <input type="text" name="size_guide" id="size_guide" required value="<?= $apparel['size']; ?>">
         </td>
       </tr>
       <tr>
