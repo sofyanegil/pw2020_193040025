@@ -22,10 +22,10 @@
                 <h4 class="card-title">P3_SENIN13_193040025</h4>
             </div>
             <ul class="list-group">
-                <li class="list-group-item"><a href="latihan3a.php" class="btn btn-warning btn-block">Latihan 3a</a></li>
-                <li class="list-group-item"><a href="latihan3b.php" class="btn btn-warning btn-block">Latihan 3b</a></li>
-                <li class="list-group-item"><a href="latihan3c.php" class="btn btn-warning btn-block">Latihan 3c</a></li>
-                <li class="list-group-item"><a href="latihan3d.php" class="btn btn-warning btn-block">Latihan 3d</a></li>
+                <li class="list-group-item"><a href="Latihan3a.php" class="btn btn-warning btn-block">Latihan 3a</a></li>
+                <li class="list-group-item"><a href="Latihan3b.php" class="btn btn-warning btn-block">Latihan 3b</a></li>
+                <li class="list-group-item"><a href="Latihan3c.php" class="btn btn-warning btn-block">Latihan 3c</a></li>
+                <li class="list-group-item"><a href="Latihan3d.php" class="btn btn-warning btn-block">Latihan 3d</a></li>
             </ul>
             <a href="../../index.php" class="btn btn-danger text-light mt-3 ml-2">Kembali</a>
         </div>

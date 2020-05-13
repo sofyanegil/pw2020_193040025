@@ -22,11 +22,11 @@
                 <h4 class="card-title">P4_SENIN13_193040025</h4>
             </div>
             <ul class="list-group">
-                <li class="list-group-item"><a href="latihan4a.php" class="btn btn-warning btn-block">Latihan 4a</a></li>
-                <li class="list-group-item"><a href="latihan4b.php" class="btn btn-warning btn-block">Latihan 4b</a></li>
-                <li class="list-group-item"><a href="latihan4c.php" class="btn btn-warning btn-block">Latihan 4c</a></li>
-                <li class="list-group-item"><a href="latihan4d.php" class="btn btn-warning btn-block">Latihan 4d</a></li>
-                <li class="list-group-item"><a href="tugas2.php" class="btn btn-warning btn-block">Tugas 2</a></li>
+                <li class="list-group-item"><a href="Latihan4a.php" class="btn btn-warning btn-block">Latihan 4a</a></li>
+                <li class="list-group-item"><a href="Latihan4b.php" class="btn btn-warning btn-block">Latihan 4b</a></li>
+                <li class="list-group-item"><a href="Latihan4c.php" class="btn btn-warning btn-block">Latihan 4c</a></li>
+                <li class="list-group-item"><a href="Latihan4d.php" class="btn btn-warning btn-block">Latihan 4d</a></li>
+                <li class="list-group-item"><a href="Tugas2.php" class="btn btn-warning btn-block">Tugas 2</a></li>
             </ul>
             <a href="../../index.php" class="btn btn-danger text-light mt-3 ml-2">Kembali</a>
         </div>
