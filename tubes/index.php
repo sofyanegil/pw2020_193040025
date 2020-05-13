@@ -19,53 +19,71 @@ if (isset($_POST['cari'])) {
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entraight.co Store</title>
 </head>
 
 <body>
-  <a href="../index.php" class="btn btn-danger text-light mt-3 ml-2">Kembali</a>
-  <br>
-  <a href="php/login.php">
-    <button class="admin">Masuk ke halaman admin</button>
-  </a>
-  <div class="container">
-    <h1>Entraight Store.co
-      <form action="" method="POST" class="cari">
-        <input type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off" class="cari">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"> <img src="assets/img/logo.png" width="20px" alt=""> Entraight.co</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="php/login.php"> <img src="assets/img/icon/admin.png" alt=""> Admin <span class="sr-only">(current)</span></a>
+      </ul>
+      <form action="" method="POST" class="cari form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off" class="cari">
         <button type="submit" name="cari">Cari!</button>
       </form>
-    </h1>
+    </div>
+  </nav>
 
-    <table border="1" width="100%">
+  <h3 align="center">Daftar Local Apparel</h3>
+  <div class="container bg-secondary mb-5">
+    <div class="row justify-content-center">
       <?php if (empty($apparel)) : ?>
-        <tr>
-          <td colspan="2">
-            <p>Data tidak ditemukan</p>
-          </td>
-        </tr>
-
-      <?php else : ?>
-        <?php foreach ($apparel as $a) : ?>
-          <tr>
-            <td>
-              <a href="php/detail.php?id=<?= $a['id'] ?>">
-                <img src="assets/img/<?= $a['display']; ?>" alt="">
-              </a>
-              <p class="nama_artikel">
-                <?= $a['nama_artikel'] ?>
-              </p>
-
-            </td>
-          </tr>
-        <?php endforeach; ?>
-      <?php endif; ?>
-    </table>
-
+        <div class="card bg-">
+          <div class="bungkus bg-light">
+            <div class="container pb-5 pt-5 mb-5 mt-5 bg-light">
+              <div class="card kotak-apparel pb-4 pt-4 mb-5 mt-5">
+                <h1 align="center" style="color: red; ">Hasil <b></b>tidak ditemukan</h1>
+              </div>
+            </div>
+          </div>
+        <?php else : ?>
+          <?php foreach ($apparel as $a) : ?>
+            <div class="bungkus mr-2 mb-2">
+              <div class="card-deck" style="width: 18rem; height: 24rem;">
+                <div class="card bg-light kotak-apparel">
+                  <div class="card-header justify-content-center">
+                    <img class="justify-content-center" width="250px" height="250px" src="assets/img/<?= $a['display']; ?>" alt="">
+                  </div>
+                  <div class="card-body">
+                    <a href="php/detail.php?id=<?= $a['id'] ?>">
+                      <button class="btn btn-warning btn-block text-light text-center mr-auto ">
+                        <?= $a['merk']; ?> <br>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
+    </div>
 
   </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,8 +1,15 @@
 .bungkus{
 margin: auto 5px;
+border-radius: 20px !important;
+box-shadow: 5px 5px 5px black;
 }
 
-.bungkus img{
+.bungkus img {
   width: 250px;
 height: 250px;
+filter: grayscale(100);
 }
+.bungkus img:hover{
+  filter: none;
+}
+
