@@ -8,7 +8,9 @@ if (isset($_POST['cari'])) {
   $keyword = $_POST['keyword'];
   $apparel = query(
     "SELECT * FROM apparel WHERE
-          nama_artikel LIKE '%$keyword%' "
+    nama_artikel LIKE '%$keyword%' OR
+    merk LIKE '%$keyword%'
+     "
   );
 } else {
   $apparel = query("SELECT * FROM apparel");
@@ -40,7 +42,7 @@ if (isset($_POST['cari'])) {
       </ul>
       <form action="" method="POST" class="cari form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off" class="cari">
-        <button type="submit" name="cari">Cari!</button>
+        <button type="submit" name="cari" class="btn btn-outline-success">Cari! </button>
       </form>
     </div>
   </nav>

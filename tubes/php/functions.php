@@ -1,18 +1,20 @@
 <?php
-// function untuk melakukan koneksi ke database
 
 function koneksi()
 {
-    $conn = mysqli_connect("localhost", "root", "") or die("Koneksi ke DB gagal");
-    mysqli_select_db($conn, "tubes_193040025") or die("Database salah!");
-    return $conn;
+    return mysqli_connect('localhost', 'root', '', 'tubes_193040025');
 }
 
-// function untuk melakukan query ke database
-function query($sql)
+function query($query)
 {
     $conn = koneksi();
-    $result = mysqli_query($conn, "$sql");
+
+    $result = mysqli_query($conn, $query);
+    // jika hasilnya satu data
+    if (mysqli_num_rows($result) == 1) {
+        return mysqli_fetch_assoc($result);
+    }
+
 
     $rows = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -21,13 +23,14 @@ function query($sql)
 
     return $rows;
 }
+
 function upload()
 {
-    $nama_file = $_FILES['gambar']['name'];
-    $tipe_file = $_FILES['gambar']['type'];
-    $ukuran_file = $_FILES['gambar']['size'];
-    $error = $_FILES['gambar']['error'];
-    $tmp_file = $_FILES['gambar']['tmp_name'];
+    $nama_file = $_FILES['display']['name'];
+    $tipe_file = $_FILES['display']['type'];
+    $ukuran_file = $_FILES['display']['size'];
+    $error = $_FILES['display']['error'];
+    $tmp_file = $_FILES['display']['tmp_name'];
 
     // ketika tidak ada gambar yang dipilih
     if ($error == 4) {
@@ -75,23 +78,29 @@ function upload()
     return $nama_file_baru;
 }
 
-// function tambah data
+
 function tambah($data)
 {
     $conn = koneksi();
-    $display = htmlspecialchars($data['display']);
+
     $merk = htmlspecialchars($data['merk']);
     $nama_artikel = htmlspecialchars($data['nama_artikel']);
     $size = htmlspecialchars($data['size']);
     $harga = htmlspecialchars($data['harga']);
     $stok = htmlspecialchars($data['stok']);
 
+    // upload gambar
+    $display = upload();
+    if (!$display) {
+        return false;
+    }
 
     $query = "INSERT INTO 
              apparel 
              VALUES
     ('' , '$display', '$merk', '$nama_artikel', '$size', '$harga', '$stok')";
-    mysqli_query($conn, $query);
+
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
 
     return mysqli_affected_rows($conn);
 }
@@ -100,23 +109,35 @@ function tambah($data)
 function hapus($id)
 {
     $conn = koneksi();
+    // menghapus gambar difolder image
+    $apparel = query("SELECT * FROM apparel WHERE id = $id");
+    if ($apparel['display'] != 'no_poto.png') {
+        unlink('../assets/img/' . $apparel['display']);
+    }
     mysqli_query($conn, "DELETE FROM apparel WHERE id = $id");
 
     return mysqli_affected_rows($conn);
 }
-
 // function ubah data
 function ubah($data)
 {
     $conn = koneksi();
     $id = htmlspecialchars($data['id']);
-    $display = htmlspecialchars($data['display']);
+
     $merk = htmlspecialchars($data['merk']);
     $nama_artikel = htmlspecialchars($data['nama_artikel']);
     $size = htmlspecialchars($data['size']);
     $harga = htmlspecialchars($data['harga']);
     $stok = htmlspecialchars($data['stok']);
+    $display_lama = htmlspecialchars($data['display_lama']);
+    $display = upload();
+    if (!$display) {
+        return false;
+    }
 
+    if ($display == 'no_poto.png') {
+        $display = $display_lama;
+    }
     $query = "UPDATE apparel SET
             display = '$display',
             merk = '$merk',
@@ -131,28 +152,89 @@ function ubah($data)
     return mysqli_affected_rows($conn);
 }
 
-// function registrasi akun
-function registrasi($data)
+
+
+
+function login($data)
 {
 
     $conn = koneksi();
-    $username = strtolower(stripslashes($data["username"]));
-    $password = mysqli_real_escape_string($conn, $data["password"]);
 
-    // cek username sudah ada atau belum
-    $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username' ");
-    if (mysqli_fetch_assoc($result)) {
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+
+    // cek dulu username
+    if ($user = query("SELECT * FROM user WHERE username ='$username'")) {
+
+        //  cek password
+        if (password_verify($password, $user['password'])) {
+            // set session
+            $_SESSION['login'] = true;
+            header("Location: index.php");
+            exit;
+        }
+    }
+    return [
+        'error' => true,
+        'pesan' => 'Username / Password Salah!'
+    ];
+}
+
+
+function registrasi($data)
+{
+    $conn = koneksi();
+
+    $username = htmlspecialchars(strtolower($data['username']));
+    $password1 = mysqli_real_escape_string($conn, $data['password1']);
+    $password2 = mysqli_real_escape_string($conn, $data['password2']);
+
+    // jika username / password kosong
+    if (empty($username) || empty($password1) || empty($password2)) {
         echo "<script>
-                    alert('username sudah digunakan');
-                </script>";
+          alert('username/ password tidak boleh kosong!');
+          document.location.href = 'registrasi.php';
+          </script>";
+
         return false;
     }
+    // jika username sudah ada
+    if (query("SELECT * FROM user WHERE username = '$username'")) {
+        echo "<script>
+    alert('username sudah terdaftar!');
+    document.location.href = 'registrasi.php';
+    </script>";
+
+        return false;
+    }
+
+    // jika konfirmasi password tidak sesuai
+    if ($password1 !== $password2) {
+        echo "<script>
+  alert('Konfirmasi password tidak sesuai');
+  document.location.href = 'registrasi.php';
+  </script>";
+
+        return false;
+    }
+
+    // jika password <5 digit
+    if (strlen($password1) < 5) {
+        echo "<script>
+  alert('Konfirmasi Password terlalu pendek');
+  document.location.href = 'registrasi.php';
+  </script>";
+
+        return false;
+    }
+
+    // jika username dan password sudah sesuai
     // enkripsi password
-    $password = password_hash($password, PASSWORD_DEFAULT);
-
-    // tambah user baru
-    $query_tambah = "INSERT INTO user VALUES('', '$username', '$password')";
-    mysqli_query($conn, $query_tambah);
-
+    $password_baru = password_hash($password1, PASSWORD_DEFAULT);
+    // insert ke table user
+    $query = "INSERT INTO user
+            VALUES
+            (null, '$username', '$password_baru')";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
     return mysqli_affected_rows($conn);
 }

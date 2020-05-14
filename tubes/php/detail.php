@@ -12,7 +12,7 @@ require 'functions.php';
 $id = $_GET['id'];
 
 // melakukan query dengan parameter id yang diambil dari url
-$apparel = query("SELECT * FROM apparel WHERE id = $id")[0];
+$apparel = query("SELECT * FROM apparel WHERE id = $id");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,17 +26,17 @@ $apparel = query("SELECT * FROM apparel WHERE id = $id")[0];
 </head>
 
 <body class="mt-5">
-    <div class="container bg-light text-center">
-        <h3>Detail Produk</h3>
-        <div class="row ">
-            <div class="col-6">
+    <div class="container bg-light text-center px-lg-5">
+        <h3>Detail <?= $apparel['nama_artikel']; ?></h3>
+        <div class="row mx-lg-n5">
+            <div class=" col py-3 px-lg-5 border bg-light">
                 <div class="container">
                     <img src="../assets/img/<?= $apparel['display']; ?>" width="300px" alt="">
                 </div>
 
             </div>
-            <div class="col-6">
-                <ul class="list-group">
+            <div class="col py-3 px-lg-5 border bg-light">
+                <ul class="list-group mt-5">
                     <li class="list-group-item active"><?= $apparel['merk']; ?></li>
                     <li class="list-group-item"><?= $apparel['nama_artikel']; ?></li>
                     <li class="list-group-item">Rp.<?= $apparel['harga']; ?></li>
@@ -47,6 +47,7 @@ $apparel = query("SELECT * FROM apparel WHERE id = $id")[0];
         </div>
         <a href="../index.php" class="btn btn-danger">Kembali</a>
     </div>
+
 </body>
 
 </html>

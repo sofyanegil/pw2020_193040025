@@ -9,7 +9,7 @@ if (!isset($_SESSION["username"])) {
 require 'functions.php';
 
 $id = $_GET['id'];
-$apparel = query("SELECT * FROM apparel WHERE id = $id")[0];
+$apparel = query("SELECT * FROM apparel WHERE id = $id");
 
 if (isset($_POST['ubah'])) {
   if (ubah($_POST) > 0) {
@@ -39,8 +39,8 @@ if (isset($_POST['ubah'])) {
 
 
 <body class="mt-5 bg-success">
-  <form action="" method="post">
-    <input type="hidden" name="id" id="id" reuquired value="<?= $apparel['id']; ?>">
+  <form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" id="id" required value="<?= $apparel['id']; ?>">
     <div class="container bg-success">
       <div class="row sm-12 ">
         <div class="card-deck justify-content-center" style="width: 26rem;margin:auto;">
@@ -80,11 +80,15 @@ if (isset($_POST['ubah'])) {
               </div>
             </div>
             <div class="form-group row">
+              <input type="hidden" name="display_lama" value="<?= $apparel['display']; ?>">
               <label for="colFormLabel" class="col-sm-4 col-form-label">Display</label>
               <div class="col sm-12">
-                <input type="text" name="display" id="display" required class="form-control" value="<?= $apparel['display']; ?>">
+                <input type="file" name="display" onchange="previewImage()" class="display form-control" placeholder="Display">
+                </label>
+                <img src="../assets/img/<?= $apparel['display']; ?> " width="120" alt="" style="display:block;" class="img-preview">
               </div>
             </div>
+
             <button type="submit" name="ubah" class="btn btn-success">Ubah Data!</button>
             <a href="admin.php" class="btn btn-danger">Kembali</a>
           </div>

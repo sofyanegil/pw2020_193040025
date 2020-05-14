@@ -34,7 +34,7 @@ if (isset($_POST['tambah'])) {
 </head>
 
 <body class="mt-5 bg-light">
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <div class="container bg-light">
       <div class="row sm-12">
         <div class="card-deck justify-content-center" style="width: 26rem;margin:auto;">
@@ -76,7 +76,9 @@ if (isset($_POST['tambah'])) {
             <div class="form-group row">
               <label for="colFormLabel" class="col-sm-4 col-form-label">Display</label>
               <div class="col sm-12">
-                <input type="number" name="display" id="display" required class="form-control" placeholder="Display">
+                <input type="file" name="display" onchange="previewImage()" class="display form-control" placeholder="Display">
+                </label>
+                <img src="../assets/img/no_poto.png" width="120" alt="" style="display:block;" class="img-preview">
               </div>
             </div>
             <button type="submit" name="tambah" class="btn btn-success">Tambah Data!</button>

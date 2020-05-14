@@ -153,10 +153,10 @@
 
 					<ul class="list-group">
 						<li class="list-group-item"><a href="kuliah/pertemuan9/" class="btn btn-warning btn-block">Pertemuan 9</a></li>
-						<li class="list-group-item"><a href="kuliah/pertemuan10/index.php" class="btn btn-warning btn-block">Pertemuan 10</a></li>
-						<li class="list-group-item"><a href="kuliah/pertemuan11/index.php" class="btn btn-warning btn-block">Pertemuan 11</a></li>
-						<li class="list-group-item"><a href="kuliah/pertemuan12/index.php" class="btn btn-warning btn-block">Pertemuan 12</a></li>
-						<li class="list-group-item"><a href="kuliah/pertemuan13/index.php" class="btn btn-warning btn-block">Pertemuan 13</a></li>
+						<li class="list-group-item"><a href="kuliah/Pertemuan10/index.php" class="btn btn-warning btn-block">Pertemuan 10</a></li>
+						<li class="list-group-item"><a href="kuliah/Pertemuan11/index.php" class="btn btn-warning btn-block">Pertemuan 11</a></li>
+						<li class="list-group-item"><a href="kuliah/Pertemuan12/index.php" class="btn btn-warning btn-block">Pertemuan 12</a></li>
+						<li class="list-group-item"><a href="kuliah/Pertemuan13/index.php" class="btn btn-warning btn-block">Pertemuan 13</a></li>
 					</ul>
 				</div>
 				<div class="card bg-light mb-3 col-lg-3 kotak_tools" id="">

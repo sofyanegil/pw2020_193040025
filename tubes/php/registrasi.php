@@ -1,7 +1,7 @@
 <?php
 require 'functions.php';
 
-if (isset($_POST['register'])) {
+if (isset($_POST['registrasi'])) {
   if (registrasi($_POST) > 0) {
     echo "<script>
               alert('Registrasi Berhasil');
@@ -50,9 +50,14 @@ if (isset($_POST['register'])) {
                   <div class="form-group">
                     <span> <img src="../assets/img/icon/pw.png" alt=""></span>
                     <label for="exampleFormControlInput1">Password</label>
-                    <input type="password" name="password" required class="form-control" placeholder="password">
+                    <input type="password" name="password1" required class="form-control" placeholder="password">
                   </div>
-                  <button type="submit" name="register" class="btn btn-warning">Registrasi</button>
+                  <div class="form-group">
+                    <span> <img src="../assets/img/icon/pw.png" alt=""></span>
+                    <label for="exampleFormControlInput1">Konfirmasi Password</label>
+                    <input type="password" name="password2" required class="form-control" placeholder="password">
+                  </div>
+                  <button type="submit" name="registrasi" class="btn btn-warning">Registrasi</button>
                   <div class="registrasi form-group">
                     <p>Sudah punya akun ? Login <a href="login.php" class="btn btn-info"> Disini</a></p>
                   </div>

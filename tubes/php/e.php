@@ -16,9 +16,7 @@ if (isset($_POST['cari'])) {
   $keyword = $_POST['keyword'];
   $apparel = query(
     "SELECT * FROM apparel WHERE
-          nama_artikel LIKE '%$keyword%' OR
-          merk LIKE '%$keyword%'
-           "
+          nama_artikel LIKE '%$keyword%' "
   );
 } else {
   $apparel = query("SELECT * FROM apparel");
