@@ -11,19 +11,9 @@ require 'functions.php';
 
 // melalukan query
 $apparel = query("SELECT * FROM apparel ORDER BY merk ASC");
-
 if (isset($_POST['cari'])) {
-  $keyword = $_POST['keyword'];
-  $apparel = query(
-    "SELECT * FROM apparel WHERE
-          nama_artikel LIKE '%$keyword%' OR
-          merk LIKE '%$keyword%'
-           "
-  );
-} else {
-  $apparel = query("SELECT * FROM apparel");
+  $apparel = cari($_POST['keyword']);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +41,8 @@ if (isset($_POST['cari'])) {
       </ul>
       <a href="tambah.php" class="btn btn-dark mr-2"> <img src="../assets/img/icon/tambah.png" alt="" width="20"> Tambah Data</a>
       <form action="" method="POST" class="cari form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off" class="cari">
-        <button type="submit" name="cari">Cari!</button>
+        <input class="form-control mr-sm-2 keyword" type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off" class="cari">
+        <button class="tombol cari" type="submit" name="cari">Cari!</button>
       </form>
     </div>
   </nav>

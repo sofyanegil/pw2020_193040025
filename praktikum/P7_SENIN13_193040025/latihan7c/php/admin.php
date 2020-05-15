@@ -19,7 +19,7 @@ if (isset($_GET['cari'])) {
         display LIKE '%$keyword%' OR
         merk LIKE '%$keyword%' OR
         nama_artikel LIKE '%$keyword%' OR
-        size_guide LIKE '%$keyword%' OR
+        size LIKE '%$keyword%' OR
         harga LIKE '%$keyword%' OR
         stok LIKE '%$keyword%' 
         "

@@ -42,10 +42,11 @@ $apparel = query("SELECT * FROM apparel WHERE id = $id");
                     <li class="list-group-item">Rp.<?= $apparel['harga']; ?></li>
                     <li class="list-group-item"><?= $apparel['size']; ?></li>
                     <li class="list-group-item"><?= $apparel['stok']; ?> Pcs</li>
+                    <li class="list-group-item"><a href="#" class="btn btn-outline-info">Beli <img src="../assets/img/icon/shop.png" alt=""></a></li>
                 </ul>
             </div>
         </div>
-        <a href="../index.php" class="btn btn-danger">Kembali</a>
+        <a href="../apparel.php" class="btn btn-danger">Kembali</a>
     </div>
 
 </body>

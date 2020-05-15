@@ -9,7 +9,7 @@ $apparel = cari($_GET['keyword']);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <!-- font -->
   <title>Document</title>
@@ -19,8 +19,8 @@ $apparel = cari($_GET['keyword']);
 
   <div class="row justify-content-center">
     <?php if (empty($apparel)) : ?>
-      <div class="card bg-">
-        <div class="bungkus bg-light">
+      <div class="card ">
+        <div class="bungkus mr-5 bg-light">
           <div class="container pb-5 pt-5 mb-5 mt-5 bg-light">
             <div class="card kotak-apparel pb-4 pt-4 mb-5 mt-5">
               <h1 align="center" style="color: red; ">Hasil <b></b>tidak ditemukan</h1>

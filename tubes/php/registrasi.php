@@ -4,8 +4,8 @@ require 'functions.php';
 if (isset($_POST['registrasi'])) {
   if (registrasi($_POST) > 0) {
     echo "<script>
-              alert('Registrasi Berhasil');
-              docucment.location.href = 'login.php';
+              alert('Registrasi Berhasil  Silahkan Login');
+              document.location.href = 'login.php';
           </script>";
   } else {
     echo "<script>

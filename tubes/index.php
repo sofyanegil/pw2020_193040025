@@ -1,91 +1,136 @@
-<?php
-// menghubungkan dengan file php lainnya
-require 'php/functions.php';
-// melakukan querry
-$apparel = query("SELECT * FROM apparel");
-
-if (isset($_POST['cari'])) {
-  $keyword = $_POST['keyword'];
-  $apparel = query(
-    "SELECT * FROM apparel WHERE
-    nama_artikel LIKE '%$keyword%' OR
-    merk LIKE '%$keyword%'
-     "
-  );
-} else {
-  $apparel = query("SELECT * FROM apparel");
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/index.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
   <title>Entraight.co Store</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300i,800,700i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Teko&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"> <img src="assets/img/logo.png" width="20px" alt=""> Entraight.co</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="php/login.php"> <img src="assets/img/icon/admin.png" alt=""> Admin <span class="sr-only">(current)</span></a>
-      </ul>
-      <form action="" method="POST" class="cari form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off" class="cari">
-        <button type="submit" name="cari" class="btn btn-outline-success">Cari! </button>
-      </form>
+<body class="mt-5 sm-12">
+  <!-- navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark ">
+    <div class="container">
+      <a class="navbar-brand" href="apparel.php"> <img src="assets/img/logo.png" width="25" alt=""> Entraight.Co</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link active" href="#">
+            <Entraight class="co"></Entraight> <span class="sr-only">(current)</span>
+          </a>
+          <a class="nav-item nav-link" href="php/admin.php"> <img src="assets/img/icon/admin.png" alt=""> Admin</a>
+        </div>
+      </div>
     </div>
   </nav>
+  <!--akhir navbar  -->
 
-  <h3 align="center">Daftar Local Apparel</h3>
-  <div class="container bg-secondary mb-5">
-    <div class="row justify-content-center">
-      <?php if (empty($apparel)) : ?>
-        <div class="card bg-">
-          <div class="bungkus bg-light">
-            <div class="container pb-5 pt-5 mb-5 mt-5 bg-light">
-              <div class="card kotak-apparel pb-4 pt-4 mb-5 mt-5">
-                <h1 align="center" style="color: red; ">Hasil <b></b>tidak ditemukan</h1>
-              </div>
+  <!-- jumbotron -->
+  <div class="jumbotron jumbotron-fluid text-center md scrollspy bg-light" id="#">
+    <div class="container">
+      <h1 class="display-4 "><span>Entraight.co</span> <br> Store<br>#BanggaBuatan <br> Indonesia<br>
+      </h1>
+      <a href="#local" class="btn btn-light">Check Now <img src="assets/img/icon/shop.png" alt=""> </a>
+    </div>
+  </div>
+  <!-- akhir jumbotron -->
+  <!-- isi -->
+  <div class="container scrollspy  bg-secondary" id="local">
+    <div class="row justify-content-center bg-secondary pt-5">
+      <div class="bungkus mr-5">
+        <div class="card-deck mb-5" style="width: 18rem;">
+          <div class="card bg-light kotak-apparel">
+            <div class="card-header justify-content-center">
+              <img class="justify-content-center" width="250" src="assets/img/img1.png" alt="">
+            </div>
+            <div class="card-body">
+              <a href="">
+                <button class="btn btn-warning btn-block text-light text-center mr-auto ">
+                  Reclays
+                </button>
+              </a>
             </div>
           </div>
-        <?php else : ?>
-          <?php foreach ($apparel as $a) : ?>
-            <div class="bungkus mr-2 mb-2">
-              <div class="card-deck" style="width: 18rem; height: 24rem;">
-                <div class="card bg-light kotak-apparel">
-                  <div class="card-header justify-content-center">
-                    <img class="justify-content-center" width="250px" height="250px" src="assets/img/<?= $a['display']; ?>" alt="">
-                  </div>
-                  <div class="card-body">
-                    <a href="php/detail.php?id=<?= $a['id'] ?>">
-                      <button class="btn btn-warning btn-block text-light text-center mr-auto ">
-                        <?= $a['merk']; ?> <br>
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        <?php endif; ?>
         </div>
+      </div>
+      <div class="bungkus mr-5">
+        <div class="card-deck mb-5" style="width: 18rem;">
+          <div class="card bg-light kotak-apparel">
+            <div class="card-header justify-content-center">
+              <img class="justify-content-center" width="250" src="assets/img/img7.png" alt="">
+            </div>
+            <div class="card-body">
+              <a href="">
+                <button class="btn btn-warning btn-block text-light text-center mr-auto ">
+                  Pot Met Pops
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bungkus">
+        <div class="card-deck mb-5" style="width: 18rem;">
+          <div class="card bg-light kotak-apparel">
+            <div class="card-header justify-content-center">
+              <img class="justify-content-center" width="250" src="assets/img/img5.png" alt="">
+            </div>
+            <div class="card-body">
+              <a href="">
+                <button class="btn btn-warning btn-block text-light text-center mr-auto ">
+                  Tenue de Attire
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row justify-content-center mb-1 pb-1">
+      <a href="apparel.php" class="btn btn-info" style="margin-top: -20px">Cek Semua Koleksi</a>
     </div>
 
   </div>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- footer -->
+  <footer class="pt-3 pb-2">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-sm-12">
+          <p>&copy; 2020 Copyright<a href=""> Sofyan Egi Lesmana</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="..assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <!--js materialize  -->
+  <script src="../assets/js/materialize.min.js"></script>
+  <script>
+    const scroll = document.querySelectorAll('.scrollspy');
+    M.ScrollSpy.init(scroll, {
+      scrollOffset: 60
+    });
+    const materialbox = document.querySelectorAll('.materialboxed');
+    M.Materialbox.init(materialbox);
+  </script>
+
 </body>
 
 </html>

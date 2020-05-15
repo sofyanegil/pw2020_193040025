@@ -88,7 +88,7 @@ if (isset($_POST['tambah'])) {
       </div>
     </div>
   </form>
-
+  <script src="../js/script.js"></script>
 </body>
 
 </html>

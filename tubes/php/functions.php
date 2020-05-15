@@ -238,3 +238,25 @@ function registrasi($data)
     mysqli_query($conn, $query) or die(mysqli_error($conn));
     return mysqli_affected_rows($conn);
 }
+
+function cari($keyword)
+{
+    $conn = koneksi();
+
+    $query = "SELECT * FROM apparel
+            WHERE nama_artikel LIKE '%$keyword%' OR
+            merk LIKE '%$keyword%' OR
+            size LIKE '%$keyword%' OR
+            stok LIKE '%$keyword%' OR
+            harga LIKE '%$keyword%'
+             ";
+
+    $result = mysqli_query($conn, $query);
+
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+
+    return $rows;
+}
