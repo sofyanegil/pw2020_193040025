@@ -1,0 +1,6 @@
+pw19025_pw19025
+zDTb^$zarmaP
+    function koneksi()
+{
+    return mysqli_connect('localhost', 'pw19025_pw19025', 'zDTb^$zarmaP', 'pw19025_tubes_193040025');
+}

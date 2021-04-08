@@ -1,65 +1,64 @@
-body{
-  font-family:arial;
-  background:linear-gradient(to right bottom, khaki, #8081ff, #a6ffb8, #dfff29);
+body {
+  font-family: arial;
+  background: linear-gradient(to right bottom, khaki, #8081ff, #a6ffb8, #dfff29);
   min-height: 550px;
 }
-img{
-  filter : grayscale(100%);
-  opacity : 50%;
+img {
+  filter: grayscale(100%);
+  opacity: 50%;
 }
 img:hover {
-  filter : saturate(150%);
-  opacity : 100%;
+  filter: saturate(150%);
+  opacity: 100%;
 }
-.container{
+.container {
   border: 5px dashed blue;
   width: 80%;
   margin: 50px auto auto auto;
-  
 }
-table{
-  margin : auto;
+table {
+  margin: auto;
   width: 100%;
 }
-.bg_display{
+.bg_display {
   background-color: #ffe1b0;
 }
-.bg_display img{
+.bg_display img {
   width: 300px;
-  height: 300px; 
- margin: auto;
-}
-.bg_size_guide{
-  background-color: #ffffff;
-}
-.bg_size_guide img{
-  width: 100%;
-  height:300px;
+  height: 300px;
   margin: auto;
 }
-.merk{
-  background-color: #fcbfa9;
-  color:#ffffff;
-  font-weight:bold;
+.bg_size_guide {
+  background-color: #ffffff;
 }
-.nama_artikel{
+.bg_size_guide img {
+  width: 100%;
+  height: 300px;
+  margin: auto;
+}
+.merk {
+  background-color: #fcbfa9;
+  color: #ffffff;
+  font-weight: bold;
+}
+.nama_artikel {
   background-color: #fac5e6;
-  color:#946500;
+  color: #946500;
 }
 #nama_artikel a {
   font-size: 25px;
- color :black;
+  color: black;
 }
 
-.harga{
+.harga {
   background-color: #f5f387;
-  color:red;
+  color: red;
 }
-.stok{
+.stok {
   background-color: #5ced83;
-  color:yellow;
+  color: yellow;
 }
 p {
-  margin : 0;
+  margin: 0;
   text-align: center;
 }

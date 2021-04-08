@@ -1,12 +1,11 @@
 <?php
 
-function koneksi()
-{
-    return mysqli_connect('localhost', 'root', '', 'tubes_193040025');
+//Function untuk koneksi database
+function koneksi() {
+    return mysqli_connect('localhost', 'root', '', 'pw2020_193040025');
 }
 
-function query($query)
-{
+function query($query) {
     $conn = koneksi();
 
     $result = mysqli_query($conn, $query);
@@ -14,7 +13,6 @@ function query($query)
     if (mysqli_num_rows($result) == 1) {
         return mysqli_fetch_assoc($result);
     }
-
 
     $rows = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -24,63 +22,8 @@ function query($query)
     return $rows;
 }
 
-function upload()
-{
-    $nama_file = $_FILES['display']['name'];
-    $tipe_file = $_FILES['display']['type'];
-    $ukuran_file = $_FILES['display']['size'];
-    $error = $_FILES['display']['error'];
-    $tmp_file = $_FILES['display']['tmp_name'];
-
-    // ketika tidak ada gambar yang dipilih
-    if ($error == 4) {
-        // echo  "<script>
-        //       alert('pilih gambar terlebih dahulu!');
-        //       </script>";
-        return 'no_poto.png';
-    }
-    // cek extensi file
-    $daftar_gambar = ['jpg', 'jpeg', 'png'];
-    $ekstensi_file = explode('.', $nama_file);
-    $ekstensi_file = strtolower(end($ekstensi_file));
-    if (!in_array($ekstensi_file, $daftar_gambar)) {
-        echo "<script>
-    alert('file yang anda pilih bukan gambar!');
-    </script>";
-        return false;
-    }
-
-    // cek type file
-    if ($tipe_file != 'image/jpeg' && $tipe_file != 'image/png') {
-        echo "<script>
-       alert('file yang anda pilih bukan gambar!');
-      </script>";
-        return false;
-    }
-
-    // cek ukuran file
-    // maximal 5Mb
-    if ($ukuran_file > 5000000) {
-        echo "<script>
-    alert('ukuran file anda terlalu besar!');
-   </script>";
-        return false;
-    }
-
-    // lolos pengecekan 
-    // siap upload file
-    // generate nama file baru
-    $nama_file_baru = uniqid();
-    $nama_file_baru .= '.';
-    $nama_file_baru .= $ekstensi_file;
-    move_uploaded_file($tmp_file, '../assets/img/' . $nama_file_baru);
-
-    return $nama_file_baru;
-}
-
-
-function tambah($data)
-{
+//function untuk tambah data
+function tambah($data) {
     $conn = koneksi();
 
     $merk = htmlspecialchars($data['merk']);
@@ -96,9 +39,9 @@ function tambah($data)
     }
 
     $query = "INSERT INTO 
-             apparel 
-             VALUES
-    ('' , '$display', '$merk', '$nama_artikel', '$size', '$harga', '$stok')";
+            apparel 
+            VALUES
+    (null , '$display', '$merk', '$nama_artikel', '$size', '$harga', '$stok')";
 
     mysqli_query($conn, $query) or die(mysqli_error($conn));
 
@@ -106,8 +49,7 @@ function tambah($data)
 }
 
 // function hapus data
-function hapus($id)
-{
+function hapus($id) {
     $conn = koneksi();
     // menghapus gambar difolder image
     $apparel = query("SELECT * FROM apparel WHERE id = $id");
@@ -118,9 +60,9 @@ function hapus($id)
 
     return mysqli_affected_rows($conn);
 }
+
 // function ubah data
-function ubah($data)
-{
+function ubah($data) {
     $conn = koneksi();
     $id = htmlspecialchars($data['id']);
 
@@ -152,37 +94,60 @@ function ubah($data)
     return mysqli_affected_rows($conn);
 }
 
+function upload() {
+    $nama_file = $_FILES['display']['name'];
+    $tipe_file = $_FILES['display']['type'];
+    $ukuran_file = $_FILES['display']['size'];
+    $error = $_FILES['display']['error'];
+    $tmp_file = $_FILES['display']['tmp_name'];
 
-
-
-function login($data)
-{
-
-    $conn = koneksi();
-
-    $username = htmlspecialchars($data['username']);
-    $password = htmlspecialchars($data['password']);
-
-    // cek dulu username
-    if ($user = query("SELECT * FROM user WHERE username ='$username'")) {
-
-        //  cek password
-        if (password_verify($password, $user['password'])) {
-            // set session
-            $_SESSION['login'] = true;
-            header("Location: index.php");
-            exit;
-        }
+    // ketika tidak ada gambar yang dipilih
+    if ($error == 4) {
+        echo  "<script>
+              alert('pilih gambar terlebih dahulu!');
+              </script>";
+        return 'no_poto.png';
     }
-    return [
-        'error' => true,
-        'pesan' => 'Username / Password Salah!'
-    ];
+    // cek extensi file
+    $daftar_gambar = ['jpg', 'jpeg', 'png'];
+    $ekstensi_file = explode('.', $nama_file);
+    $ekstensi_file = strtolower(end($ekstensi_file));
+    if (!in_array($ekstensi_file, $daftar_gambar)) {
+        echo "<script>
+    alert('file yang anda pilih bukan gambar!');
+    </script>";
+        return false;
+    }
+
+    // cek type file
+    if ($tipe_file != 'image/jpeg' && $tipe_file != 'image/png') {
+        echo "<script>
+        alert('file yang anda pilih bukan gambar!');
+        </script>";
+        return false;
+    }
+
+    // cek ukuran file
+    // maximal 5Mb
+    if ($ukuran_file > 5000000) {
+        echo "<script>
+        alert('ukuran file anda terlalu besar!');
+        </script>";
+        return false;
+    }
+
+    // lolos pengecekan 
+    // siap upload file
+    // generate nama file baru
+    $nama_file_baru = uniqid();
+    $nama_file_baru .= '.';
+    $nama_file_baru .= $ekstensi_file;
+    move_uploaded_file($tmp_file, '../assets/img/' . $nama_file_baru);
+
+    return $nama_file_baru;
 }
 
-
-function registrasi($data)
-{
+function registrasi($data) {
     $conn = koneksi();
 
     $username = htmlspecialchars(strtolower($data['username']));
@@ -192,18 +157,18 @@ function registrasi($data)
     // jika username / password kosong
     if (empty($username) || empty($password1) || empty($password2)) {
         echo "<script>
-          alert('username/ password tidak boleh kosong!');
-          document.location.href = 'registrasi.php';
-          </script>";
+        alert('username/ password tidak boleh kosong!');
+        document.location.href = 'registrasi.php';
+        </script>";
 
         return false;
     }
     // jika username sudah ada
     if (query("SELECT * FROM user WHERE username = '$username'")) {
         echo "<script>
-    alert('username sudah terdaftar!');
-    document.location.href = 'registrasi.php';
-    </script>";
+        alert('username sudah terdaftar!');
+        document.location.href = 'registrasi.php';
+        </script>";
 
         return false;
     }
@@ -211,9 +176,9 @@ function registrasi($data)
     // jika konfirmasi password tidak sesuai
     if ($password1 !== $password2) {
         echo "<script>
-  alert('Konfirmasi password tidak sesuai');
-  document.location.href = 'registrasi.php';
-  </script>";
+        alert('Konfirmasi password tidak sesuai');
+        document.location.href = 'registrasi.php';
+        </script>";
 
         return false;
     }
@@ -221,9 +186,9 @@ function registrasi($data)
     // jika password <5 digit
     if (strlen($password1) < 5) {
         echo "<script>
-  alert('Konfirmasi Password terlalu pendek');
-  document.location.href = 'registrasi.php';
-  </script>";
+        alert('Password terlalu pendek');
+        document.location.href = 'registrasi.php';
+        </script>";
 
         return false;
     }
@@ -239,8 +204,7 @@ function registrasi($data)
     return mysqli_affected_rows($conn);
 }
 
-function cari($keyword)
-{
+function cari($keyword) {
     $conn = koneksi();
 
     $query = "SELECT * FROM apparel
@@ -248,8 +212,7 @@ function cari($keyword)
             merk LIKE '%$keyword%' OR
             size LIKE '%$keyword%' OR
             stok LIKE '%$keyword%' OR
-            harga LIKE '%$keyword%'
-             ";
+            harga LIKE '%$keyword%'";
 
     $result = mysqli_query($conn, $query);
 
@@ -259,4 +222,11 @@ function cari($keyword)
     }
 
     return $rows;
+}
+
+
+//login
+// cek cookie
+function login(){
+
 }

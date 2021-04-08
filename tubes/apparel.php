@@ -14,6 +14,7 @@ if (isset($_POST['cari'])) {
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/apparel.css">
   <meta charset="UTF-8">
@@ -21,9 +22,9 @@ if (isset($_POST['cari'])) {
   <title>Entraight.co Store</title>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"> <img src="assets/img/logo.png" width="20px" alt=""> Entraight.co</a>
+<body class="mt-5 pt-3">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="index.php"> <img src="assets/img/logo.png" width="20px" alt=""> Entraight.co</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,28 +32,19 @@ if (isset($_POST['cari'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="php/login.php"> <img src="assets/img/icon/admin.png" alt=""> Admin <span class="sr-only">(current)</span></a>
+          <a class="nav-link btn btn-info" href="php/login.php"> <img src="assets/img/icon/admin.png" alt=""> Log In <span class="sr-only">(current)</span></a>
       </ul>
       <form action="" method="POST" class="cari form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2 keyword" type="text" name="keyword" size="30" autofocus placeholder="Masukan keyword yang anda cari" autocomplete="off" class="cari">
+        <img src="assets/img/icon/loading.gif" alt="">
         <button type="submit" name="cari" class="btn btn-outline-success tombol-cari">Cari! </button>
       </form>
     </div>
   </nav>
 
   <h3 align="center">Daftar Local Apparel</h3>
-  <div class="container bg-secondary mb-5">
+  <div class="container bg-secondary  pt-5 pb-2">
     <div class="row justify-content-center">
-      <?php if (empty($apparel)) : ?>
-        <div class="card bg-">
-          <div class="bungkus bg-light">
-            <div class="container pb-5 pt-5 mb-5 mt-5 bg-light">
-              <div class="card kotak-apparel pb-4 pt-4 mb-5 mt-5">
-                <h1 align="center" style="color: red; ">Hasil <b></b>tidak ditemukan</h1>
-              </div>
-            </div>
-          </div>
-        <?php else : ?>
           <?php foreach ($apparel as $a) : ?>
             <div class="bungkus mr-2 mb-2">
               <div class="card-deck" style="width: 18rem; height: 24rem;">
@@ -71,12 +63,11 @@ if (isset($_POST['cari'])) {
               </div>
             </div>
           <?php endforeach; ?>
-        <?php endif; ?>
         </div>
     </div>
 
   </div>
-  <footer class="bg-dark pb-3 justify-content-center text-center text-light">
+  <footer class="bg-dark pb-3 justify-content-center text-center text-light" style="bottom:0;">
     <h5 class="pt-2">2020 &copy; Copyright by <a href="" class="text-info">Sofyan Egi Lesmana - 193040025</a> </h5>
   </footer>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

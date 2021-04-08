@@ -19,6 +19,7 @@ if (isset($_POST['cari'])) {
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="../assets/img/logo.png">
   <link rel="stylesheet" href="../css/admin.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <meta charset="UTF-8">
@@ -36,7 +37,7 @@ if (isset($_POST['cari'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class=" btn btn-danger text-light" href="logout.php"> <img src="assets/img/icon/admin.png" alt=""> Logout <span class="sr-only">(current)</span></a>
+          <a class=" btn btn-danger text-light" href="logout.php"> <img src="assets/img/icon/admin.png" alt=""> Logout <img src="../assets/img/icon/logout.png" alt="" width="25"> <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <a href="tambah.php" class="btn btn-dark mr-2"> <img src="../assets/img/icon/tambah.png" alt="" width="20"> Tambah Data</a>
@@ -47,7 +48,13 @@ if (isset($_POST['cari'])) {
     </div>
   </nav>
 
-  <div class="container">
+<div class="alert alert-success alert-dismissible fade show mb-0 text-center" role="alert" style="width:50%; margin:auto;display:block;">
+  <h3><strong>Selamat Datang</strong> <?= $_SESSION['username']; ?></h3>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+  <div class="container" >
     <table border="1" cellspacing="0" cellpadding="5" class="table table-responsive">
       <tr class="thead">
         <th colspan="8">

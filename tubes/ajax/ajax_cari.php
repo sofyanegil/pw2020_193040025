@@ -17,15 +17,16 @@ $apparel = cari($_GET['keyword']);
 
 <body>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center pb-2">
     <?php if (empty($apparel)) : ?>
-      <div class="card ">
-        <div class="bungkus mr-5 bg-light">
-          <div class="container pb-5 pt-5 mb-5 mt-5 bg-light">
+      
+        <div class="bungkus bg-light">
+         <div class="container pb-5 pt-5 mb-5 mt-5 bg-light">
             <div class="card kotak-apparel pb-4 pt-4 mb-5 mt-5">
-              <h1 align="center" style="color: red; ">Hasil <b></b>tidak ditemukan</h1>
+              <h1 align="center" style="color: red; ">Hasil untuk:  <b><?= $_GET['keyword']; ?></b> tidak ditemukan</h1>
             </div>
           </div>
+        </div>
         </div>
       <?php else : ?>
         <?php foreach ($apparel as $a) : ?>

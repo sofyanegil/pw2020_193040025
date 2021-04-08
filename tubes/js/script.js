@@ -1,11 +1,11 @@
-const tombolCari = document.querySelector('.tombol-cari');
-const keyword = document.querySelector('.keyword');
-const container = document.querySelector('.container');
+const tombolCari = document.querySelector(".tombol-cari");
+const keyword = document.querySelector(".keyword");
+const container = document.querySelector(".container");
 
 // hilangkan tombol cari
-tombolCari.style.display = 'none';
+tombolCari.style.display = "none";
 // event ketika kita menuliskan keyboard
-keyword.addEventListener('keyup', function () {
+keyword.addEventListener("keyup", function () {
   // ajax
   // xmlhttprequest
   // const xhr = new XMLHttpRequest();
@@ -20,15 +20,15 @@ keyword.addEventListener('keyup', function () {
   // xhr.send();
 
   // fetch()
-  fetch('ajax/ajax_cari.php?keyword=' + keyword.value)
+  fetch("ajax/ajax_cari.php?keyword=" + keyword.value)
     .then((response) => response.text())
     .then((response) => (container.innerHTML = response));
 });
 
 // preview image untuk tambah dan ubah
 function previewImage() {
-  const gambar = document.querySelector('.display');
-  const imgPreview = document.querySelector('.img-preview');
+  const gambar = document.querySelector(".display");
+  const imgPreview = document.querySelector(".img-preview");
 
   const oFReader = new FileReader();
   oFReader.readAsDataURL(gambar.files[0]);

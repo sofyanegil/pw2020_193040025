@@ -31,7 +31,7 @@
           <a class="nav-item nav-link active" href="#">
             <Entraight class="co"></Entraight> <span class="sr-only">(current)</span>
           </a>
-          <a class="nav-item nav-link" href="php/admin.php"> <img src="assets/img/icon/admin.png" alt=""> Admin</a>
+          <a class="nav-item nav-link btn btn-success" href="php/admin.php"> <img src="assets/img/icon/admin.png" alt=""> Log In</a>
         </div>
       </div>
     </div>
@@ -48,8 +48,8 @@
   </div>
   <!-- akhir jumbotron -->
   <!-- isi -->
-  <div class="container scrollspy  bg-secondary" id="local">
-    <div class="row justify-content-center bg-secondary pt-5">
+  <div class="container   bg-secondary" >
+    <div class="row justify-content-center bg-secondary pt-5 scrollspy" id="local">
       <div class="bungkus mr-5">
         <div class="card-deck mb-5" style="width: 18rem;">
           <div class="card bg-light kotak-apparel">
@@ -125,7 +125,7 @@
   <script>
     const scroll = document.querySelectorAll('.scrollspy');
     M.ScrollSpy.init(scroll, {
-      scrollOffset: 60
+      scrollOffset: 30
     });
     const materialbox = document.querySelectorAll('.materialboxed');
     M.Materialbox.init(materialbox);
